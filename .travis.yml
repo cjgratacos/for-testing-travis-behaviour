@@ -5,6 +5,9 @@ php:
 branches:
   only:
   - master
+
+before_deploy: "ls -la && pwd"
+
 deploy:
   provider: releases
   api_key:
