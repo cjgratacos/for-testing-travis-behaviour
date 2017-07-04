@@ -15,7 +15,8 @@
         "guzzlehttp/guzzle": "~6.0"
     },
     "require-dev": {
-        "sergeytsalkov/meekrodb": "^2.3"
+        "sergeytsalkov/meekrodb": "^2.3",
+        "phpunit/phpunit": "^6.1"
     },
     "autoload":{
         "psr-4":{
