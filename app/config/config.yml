@@ -1,0 +1,9 @@
+imports:
+  - { resource: services.yml }
+  - { resource: commands.yml }
+
+parameters:
+  application:
+    version: 0.1
+    name: DB Backup Command Line Tool
+    description: "This is a command line tool for managing DB Backups"
