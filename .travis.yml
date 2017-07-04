@@ -12,5 +12,4 @@ deploy:
   file: app/
   skip_cleanup: true
   on:
-    tags: true
     repo: cjgratacos/backup-tool
