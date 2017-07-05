@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class DummyTest extends TestCase
 {
-    public function testRun():void {
+    public function testRun() {
         $this->assertStringEndsWith("World", "Hello World");
     }
 }
