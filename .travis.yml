@@ -11,11 +11,14 @@ branches:
 before_deploy:
   - "ls -la"
   - "pwd"
-  - "export TESTING=app_release-`date +%Y-%m-%d_%s`"
-  - "zip -r $TESTING.zip app"
+  - "export TESTING=app_release-`date +%Y-%m-%d`_build_$TRAVIS_JOB_ID"
+  - "zip -r ${TESTING}.zip app"
   - "ls -la"
-  - "echo $TRAVIS_TAG"
-  -
+  - "echo \"$TRAVIS_TAG\""
+  - "echo \"$TESTING\""
+  - "echo \"$TRAVIS_JOB_ID\""
+  - "export $TRAVIS_TAG=$TESTING"
+  - "echo \"$TRAVIS_TAG\""
 
 deploy:
   provider: releases
@@ -23,7 +26,7 @@ deploy:
     secure: nYXHpI5BRo+vaCNe5gYc2L0J3QHUNkXH4cUnFneJmK6qeTBQ63UOZVwPbiKH0dmvKFtLr37eDyjFnx1rCQggI6K7MLHjOxzERsjcZifyTblKYeoZas/Nj2Uv2XPvYOpWatBzr8pm03VVDXNfGFN1P9Fe8sEDJpJ69KAMI7Odgpri3yQXmRFBqFiQyKIg8AzDm7LB/BpkvFpCR4e1/EUS/PQzvqnt6m31v7N2Mpe/LuxGSJaMSj95AO2DDdlOtbnkyVMlcOsSXP9znVB2pMSw5+L5Up9Eu1R1p4FvzZEa9b04H6LuVqXx81eA3ixRjNJ8hmpHiKPJf+XaAPpv5z7Z4Ox1mrPIpg9LOK/3rNTpPYu6tfkoQrrhRfMKP4FcHHv98M3r+lkqoczij3Sb7QRnPXqfLPdbbf5jtE8JI3Y5X6d3LiMSZeZBapSd3Lz9MkIciZmzBI3/VaiFhThkRG8Y+FUNL7BYsY7qCtdQD3qOR8T2MGpZKBUG4m3ZeZKuti3uSYwDmSq9qbl69mdHMBcGDP5c1oquVWrPeM0C09kzCpz5VokanTOx/5qshxvaUaGv/6c4v/I4jBRqd3dK6EzCQ6TwUAgW5Tnq5+KfLBaswzleW4JeCGDGvXn/2EhVpKD0U5VD+YT3bCT9Ss3lgQdQjRq2JhmWlwqiKjtMRNqfAaA=
   skip_cleanup: true
   file:
-    - "$TESTING.zip"
+    - "${TESTING}.zip"
   on:
     branch: master
     repo: cjgratacos/backup-tool
