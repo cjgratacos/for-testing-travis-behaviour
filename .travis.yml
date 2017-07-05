@@ -11,7 +11,7 @@ branches:
 before_deploy:
   - "ls -la"
   - "pwd"
-  - "export TESTING=app_release-`date +%Y-%m-%d`_build_$TRAVIS_JOB_ID"
+  - "export TESTING=app_release-`date +%Y-%m-%d`_build_$TRAVIS_BUILD_NUMBER"
   - "zip -r ${TESTING}.zip app"
   - "ls -la"
   - "echo \"$TRAVIS_TAG\""
