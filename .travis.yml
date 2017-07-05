@@ -17,7 +17,7 @@ before_deploy:
   - "echo \"$TRAVIS_TAG\""
   - "echo \"$TESTING\""
   - "echo \"$TRAVIS_JOB_ID\""
-  - "export $TRAVIS_TAG=$TESTING"
+  - "export TRAVIS_TAG=$TESTING"
   - "echo \"$TRAVIS_TAG\""
 
 deploy:
