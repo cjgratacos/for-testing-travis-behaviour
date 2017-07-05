@@ -21,5 +21,6 @@ deploy:
   files:
     - "app.zip"
   on:
+    tags: true
     branch: master
     repo: cjgratacos/backup-tool
