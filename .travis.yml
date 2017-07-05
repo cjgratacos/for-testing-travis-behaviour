@@ -25,7 +25,6 @@ deploy:
   file:
     - "$TESTING.zip"
   on:
-    tags: true
     branch: master
     repo: cjgratacos/backup-tool
     php: 7.1
