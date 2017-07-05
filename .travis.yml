@@ -1,8 +1,17 @@
 language: php
 php:
 - '7.1'
+
+branches:
+  only:
+    - master
+    - test
+
 before_deploy:
+  - "ls -la"
+  - "pwd"
   - "zip -r app.zip app"
+  - "ls -la"
 
 deploy:
   provider: releases
