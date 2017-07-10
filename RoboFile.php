@@ -1,12 +1,18 @@
 <?php
 
-class RoboFile extends \Robo\Tasks
+use \Robo\Tasks;
+
+class RoboFile extends Tasks
 {
-    function toolPhar(){
+    function buildPhar(){
         $this->_exec('./phar-builder.phar package composer.json');
     }
 
+    function runPhar(){
+
+    }
+
     function runTest(){
-        $this->_exec("SERVER_PORT=9000 SERVER_NAME=127.0.0.1 php -dxdebug.remote_autostart=On init.php backup 1 2 3");
+        $this->_exec("init.php db:dump 1 2 3");
     }
 }

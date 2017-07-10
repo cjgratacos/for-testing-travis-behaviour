@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: carlosgr
- * Date: 6/26/17
- * Time: 4:40 PM
- */
 
 namespace BackupTool\Command;
 

@@ -3,7 +3,7 @@
     "description": "Simple Backup tool",
     "type": "project",
     "require": {
-        "symfony/console": "^3.2",
+        "symfony/console": "^3.2 || ^2.7",
         "symfony/event-dispatcher": "^3.2",
         "symfony/filesystem": "^3.2",
         "symfony/process": "^3.2",
@@ -12,7 +12,9 @@
         "symfony/framework-bundle": "^3.2",
         "symfony/yaml": "^3.2",
         "doctrine/orm": "^2.5",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~6.0",
+        "macfja/phar-builder":"dev-master",
+        "macfja/symfony-console-filechooser":"0.1"
     },
     "require-dev": {
         "sergeytsalkov/meekrodb": "^2.3",
@@ -24,17 +26,23 @@
         }
     },
     "license": "Apache 2",
+   "repositories":[
+       {
+           "type":"vcs",
+           "url": "https://github.com/cjgratacos/PharBuilder"
+       }
+   ],
     "extra": {
          "phar-builder": {
-             "compression": false,
-             "name": "app.phar",
+             "compression": "GZip",
+             "name": "backup-tool.phar",
              "output-dir": "./",
              "entry-point": "init.php",
-             "include": [],
+             "include": ["vendor","app","src"],
              "include-dev": false,
              "events": {
                  "build.after": [
-                     "chmod +x ./app.phar"
+                     "chmod +x ./backup-tool.phar"
                  ]
              }
          }
