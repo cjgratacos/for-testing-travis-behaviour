@@ -1,0 +1,43 @@
+language: php
+php:
+- 7.0
+- 7.1
+
+branches:
+  only:
+    - master
+    - test
+
+#notifications:
+#  webhooks:
+#    urls:
+#      - http://ec2-54-244-218-244.us-west-2.compute.amazonaws.com/issue
+#    on_success: never
+#    on_failure: always
+#    on_start: never
+#    on_cancel: never
+#    on_error: always
+#
+#before_deploy:
+#  - "ls -la"
+#  - "pwd"
+#  - "export TESTING=app_release-`date +%Y-%m-%d`_build_$TRAVIS_BUILD_NUMBER"
+#  - "zip -r ${TESTING}.zip app"
+#  - "ls -la"
+#  - "echo \"$TRAVIS_TAG\""
+#  - "echo \"$TESTING\""
+#  - "echo \"$TRAVIS_JOB_ID\""
+#  - "export TRAVIS_TAG=$TESTING"
+#  - "echo \"$TRAVIS_TAG\""
+#
+#deploy:
+#  provider: releases
+#  user: $GITHUB_USER_USERNAME
+#  password: $GITHUB_USER_PASSWORD
+#  skip_cleanup: true
+#  file:
+#    - "${TESTING}.zip"
+#  on:
+#    branch: master
+#    repo: cjgratacos/backup-tool
+#    php: 7.1

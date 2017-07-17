@@ -1,0 +1,26 @@
+
+services:
+    app.config_loader:
+      class: BackupTool\Service\ConfigLoader
+      arguments: []
+    app.config_manager:
+      class: BackupTool\Service\ConfigManager
+      arguments: []
+    db.service_factory:
+      class: BackupTool\Service\DB\DbServiceFactory
+      arguments: []
+    db.db_manager:
+      class: BackupTool\Service\DB\DbManager
+      arguments: []
+    repo.service_factory:
+      class: BackupTool\Service\Repo\RepoServiceFactory
+      arguments: []
+    repo.repo_manager:
+      class: BackupTool\Service\Repo\RepoManager
+      arguments: []
+    app.backup_manager:
+      class: BackupTool\Service\BackupManager
+      arguments: ['@service_container']
+    app.upload_manager:
+      class: BackupTool\Service\UploadManager
+      arguments: ['@service_container']

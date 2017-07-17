@@ -1,0 +1,42 @@
+{
+    "name": "carlosgr/backup-tool",
+    "description": "Simple Backup tool",
+    "type": "project",
+    "require": {
+        "symfony/console": "^3.2",
+        "symfony/event-dispatcher": "^3.2",
+        "symfony/filesystem": "^3.2",
+        "symfony/process": "^3.2",
+        "symfony/http-kernel": "^3.2",
+        "symfony/dependency-injection": "^3.2",
+        "symfony/framework-bundle": "^3.2",
+        "symfony/yaml": "^3.2",
+        "doctrine/orm": "^2.5",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "sergeytsalkov/meekrodb": "^2.3",
+        "phpunit/phpunit": "^6.1"
+    },
+    "autoload":{
+        "psr-4":{
+            "BackupTool\\":"src/"
+        }
+    },
+    "license": "Apache 2",
+    "extra": {
+         "phar-builder": {
+             "compression": false,
+             "name": "app.phar",
+             "output-dir": "./",
+             "entry-point": "init.php",
+             "include": [],
+             "include-dev": false,
+             "events": {
+                 "build.after": [
+                     "chmod +x ./app.phar"
+                 ]
+             }
+         }
+     }
+}

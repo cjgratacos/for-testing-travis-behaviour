@@ -1,0 +1,21 @@
+db:
+  UPC:
+    type: mysql
+    credentials:
+      username: "username"
+      password: "password"
+      database: "testdb"
+      host: "192.168.99.100"
+      port: "32772"
+
+repository:
+  Artifactory:
+    type: rest
+    credential:
+      username: "<username>"
+      password: "<password>"
+      host: "<host>"
+      port: "<port>"
+      extra:
+        endpath: "<endpath>"
+ 
